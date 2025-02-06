@@ -10,8 +10,10 @@ class Tiki extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        scaffoldBackgroundColor: const Color(0xFFF3DDE3),
+        scaffoldBackgroundColor: Colors.white,
+        fontFamily: 'Caveat',
       ),
       home: const NotesView(),
     );
