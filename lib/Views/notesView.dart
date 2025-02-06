@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tiki/constants.dart';
 import 'package:tiki/widgets/add_node_sheet.dart';
-import 'package:tiki/widgets/noteItem.dart';
 import 'package:tiki/widgets/notes_list_view.dart';
 
 class NotesView extends StatelessWidget {
@@ -9,14 +9,14 @@ class NotesView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        surfaceTintColor: Colors.transparent,
+        surfaceTintColor: Colors.white.withOpacity(0.6),
         backgroundColor: Colors.transparent,
         title: const Text(
           'Tiki',
           style: TextStyle(
             fontWeight: FontWeight.bold,
-            fontSize: 60,
-            color: Color(0xFFE85B8B),
+            fontSize: 70,
+            color: primaryColor,
           ),
         ),
         actions: [
@@ -39,7 +39,7 @@ class NotesView extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         shape: const CircleBorder(),
-        backgroundColor: const Color(0xFFE85B8B),
+        backgroundColor: primaryColor,
         onPressed: () {
           showModalBottomSheet(
             context: context,

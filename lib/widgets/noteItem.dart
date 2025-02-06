@@ -31,7 +31,7 @@ class NoteItem extends StatelessWidget {
                 'Build faster, deploy faster.with Flutter.Build faster, deploy faster.with Flutter.',
                 style: TextStyle(
                   fontSize: 20,
-                  color: Colors.white.withOpacity(0.8),
+                  color: Colors.white.withOpacity(0.7),
                 ),
               ),
             ),
@@ -49,7 +49,7 @@ class NoteItem extends StatelessWidget {
             child: Text(
               'May 21,2022',
               style: TextStyle(
-                color: Colors.white.withOpacity(0.8),
+                color: Colors.white.withOpacity(0.7),
               ),
             ),
           ),
