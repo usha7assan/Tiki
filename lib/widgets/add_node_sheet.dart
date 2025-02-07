@@ -8,30 +8,45 @@ class AddNodeSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     return const SizedBox(
       height: 700,
-      child: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16.0),
-          child: Column(
-            children: [
-              SizedBox(
-                height: 30,
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 30,
+                    ),
+                    CustomTextField(
+                      hint: 'Title',
+                    ),
+                    SizedBox(
+                      height: 16,
+                    ),
+                    CustomTextField(
+                      hint: 'content',
+                      maxLines: 5,
+                    ),
+                    SizedBox(
+                      height: 300,
+                    )
+                  ],
+                ),
               ),
-              CustomTextField(
-                hint: 'Title',
-              ),
-              SizedBox(
-                height: 16,
-              ),
-              CustomTextField(
-                hint: 'content',
-                maxLines: 5,
-              ),
-              SizedBox(
-                height: 120,
-              ),
-              CustomButton(),
-            ],
-          ),
+            ),
+            Column(
+              children: [
+                CustomButton(),
+                SizedBox(
+                  height: 25,
+                ),
+              ],
+            )
+          ],
         ),
       ),
     );
