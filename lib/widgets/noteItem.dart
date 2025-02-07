@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tiki/Views/edit_note_view.dart';
 import 'package:tiki/Views/show_note.dart';
 
 class NoteItem extends StatelessWidget {

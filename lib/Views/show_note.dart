@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:tiki/Views/edit_note_view.dart';
 import 'package:tiki/constants.dart';
 import 'package:tiki/widgets/custom_app_bar.dart';
-import 'package:tiki/widgets/custom_text_field.dart';
-import 'package:tiki/widgets/noteItem.dart';
 
 class ShowNoteView extends StatelessWidget {
   const ShowNoteView({super.key});

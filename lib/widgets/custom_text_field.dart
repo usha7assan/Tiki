@@ -4,10 +4,23 @@ import 'package:tiki/constants.dart';
 class CustomTextField extends StatelessWidget {
   final String hint;
   final int maxLines;
-  const CustomTextField({super.key, required this.hint, this.maxLines = 1});
+  final Function(String?)? onSaved;
+  const CustomTextField(
+      {super.key, required this.hint, this.maxLines = 1, this.onSaved});
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
+      style: const TextStyle(
+        fontSize: 22,
+        color: Colors.black,
+      ),
+      onSaved: onSaved,
+      validator: (value) {
+        if (value == null || value.isEmpty) {
+          return 'Field is required';
+        }
+        return null;
+      },
       cursorColor: primaryColor,
       maxLines: maxLines,
       decoration: InputDecoration(
