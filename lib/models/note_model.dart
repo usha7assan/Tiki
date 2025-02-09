@@ -12,7 +12,7 @@ class NoteModel extends HiveObject {
   @HiveField(3)
   final int color;
   @HiveField(4)
-  final bool isFavorite;
+  bool isFavorite;
 
   NoteModel({
     required this.title,

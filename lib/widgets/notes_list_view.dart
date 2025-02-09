@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tiki/Views/show_note.dart';
+import 'package:tiki/cubits/read_notes_cubit/cubit/read_notes_cubit.dart';
+import 'package:tiki/models/note_model.dart';
+
 import 'package:tiki/widgets/noteItem.dart';
 
 class NotesListView extends StatelessWidget {
@@ -8,16 +13,28 @@ class NotesListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 16.0),
-      child: ListView(
-        children: const [
-          NoteItem(),
-          NoteItem(),
-          NoteItem(),
-          NoteItem(),
-        ],
-      ),
+    return BlocBuilder<ReadNotesCubit, ReadNotesState>(
+      builder: (context, state) {
+        List<NoteModel> notes =
+            BlocProvider.of<ReadNotesCubit>(context).notes ?? [];
+        print(notes.length);
+        return Padding(
+          padding: const EdgeInsets.only(top: 16.0),
+          child: ListView.builder(
+            itemCount: notes.length,
+            itemBuilder: (context, index) => NoteItem(
+              note: notes[index],
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return ShowNoteView(
+                    note: notes[index],
+                  );
+                }));
+              },
+            ),
+          ),
+        );
+      },
     );
   }
 }
