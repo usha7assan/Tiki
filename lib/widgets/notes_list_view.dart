@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tiki/Views/edit_note_view.dart';
 import 'package:tiki/Views/show_note.dart';
 import 'package:tiki/cubits/read_notes_cubit/cubit/read_notes_cubit.dart';
 import 'package:tiki/models/note_model.dart';
@@ -24,13 +25,6 @@ class NotesListView extends StatelessWidget {
             itemCount: notes.length,
             itemBuilder: (context, index) => NoteItem(
               note: notes[index],
-              onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return ShowNoteView(
-                    note: notes[index],
-                  );
-                }));
-              },
             ),
           ),
         );

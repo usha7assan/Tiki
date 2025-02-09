@@ -4,7 +4,12 @@ import 'package:tiki/constants.dart';
 class CustomButton extends StatelessWidget {
   final void Function()? onTap;
   final bool isLoading;
-  const CustomButton({super.key, required this.onTap, this.isLoading = false});
+  final Color color;
+  const CustomButton(
+      {super.key,
+      required this.onTap,
+      this.isLoading = false,
+      required this.color});
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -12,7 +17,7 @@ class CustomButton extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8),
-          color: primaryColor,
+          color: color,
         ),
         width: MediaQuery.of(context).size.width,
         height: 50,

@@ -1,27 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:tiki/constants.dart';
 
-class CustomTextField extends StatelessWidget {
+class EditCustomTextField extends StatelessWidget {
   final String hint;
   final String? initialValue;
-  final int maxLines;
+  final int? maxLines;
   final Function(String?)? onSaved;
   final Function(String?)? onChanged;
-  const CustomTextField(
+  final TextStyle textStyle;
+  const EditCustomTextField(
       {super.key,
       required this.hint,
       this.maxLines = 1,
       this.onSaved,
       this.onChanged,
-      this.initialValue});
+      this.initialValue,
+      required this.textStyle});
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      autofocus: true,
       initialValue: initialValue ?? "",
-      style: const TextStyle(
-        fontSize: 22,
-        color: Colors.black,
-      ),
+      style: textStyle,
       onChanged: onChanged,
       onSaved: onSaved,
       validator: (value) {
@@ -30,21 +30,23 @@ class CustomTextField extends StatelessWidget {
         }
         return null;
       },
-      cursorColor: primaryColor,
+      cursorColor: Colors.white,
       maxLines: maxLines,
       decoration: InputDecoration(
-        border: buildBorder(secondaryColor.withOpacity(0.45)),
-        focusedBorder: buildBorder(primaryColor),
-        enabledBorder: buildBorder(secondaryColor.withOpacity(0.45)),
+        border: buildBorder(),
+        focusedBorder: buildBorder(),
+        enabledBorder: buildBorder(),
         hintText: hint,
         hintStyle: const TextStyle(fontSize: 17, color: Colors.grey),
       ),
     );
   }
 
-  OutlineInputBorder buildBorder([color]) {
-    return OutlineInputBorder(
-      borderSide: BorderSide(color: color ?? Colors.grey),
+  OutlineInputBorder buildBorder() {
+    return const OutlineInputBorder(
+      borderSide: BorderSide(
+        color: Colors.transparent,
+      ),
     );
   }
 }
